@@ -16,8 +16,6 @@ public class MyEntity {
     private String rootElement;
     @Column("org_id")
     private Integer orgId;
-//    @Column("node_id")
-//    private String nodeId;
     @Column("lost")
     private Boolean lost;
     @Column("namespace")

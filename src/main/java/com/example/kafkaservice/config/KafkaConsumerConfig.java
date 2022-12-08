@@ -31,7 +31,6 @@ public class KafkaConsumerConfig {
 //        factory.setConsumerFactory(consumerFactory());
 //        return factory;
 //    }
-
     @Bean
     public ReactiveKafkaConsumerTemplate<String, String> reactiveKafkaConsumerTemplate(@Value("${topicNameConsumer}") String topic, KafkaProperties properties) {
         Map<String, Object> consumerProperties=properties.buildConsumerProperties();
