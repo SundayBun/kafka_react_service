@@ -2,11 +2,11 @@ plugins {
     id 'org.springframework.boot' version '2.7.4'
     id 'io.spring.dependency-management' version '1.0.14.RELEASE'
     id 'java'
-    id "com.palantir.docker" version "0.22.1"
+    id "com.palantir.docker" version "0.30.0"
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = '14'
 
 configurations {
@@ -48,6 +48,6 @@ tasks.named('test') {
 }
 
 docker {
-    name "${project.name}:${project.version}"
-    files 'springbootify.jar'
+    name "kafka-service:${project.version}"
+    files "${project.name}-${project.version}.jar"
 }
