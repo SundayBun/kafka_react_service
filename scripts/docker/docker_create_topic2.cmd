@@ -1,0 +1,1 @@
+docker exec broker kafka-topics --bootstrap-server kafka:29092 --create --topic topic_2 --partitions 1

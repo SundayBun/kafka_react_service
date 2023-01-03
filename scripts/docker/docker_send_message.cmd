@@ -1,0 +1,1 @@
+docker exec --interactive --tty broker kafka-console-producer --bootstrap-server kafka:29092 --topic topic_1
