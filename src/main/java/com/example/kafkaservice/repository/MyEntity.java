@@ -7,19 +7,19 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Date;
 
-@Table(name = "someTable")
+@Table(name = "sometable")
 @Data
 public class MyEntity {
     @Id
     private Integer id;
-    @Column("method")
-    private String rootElement;
     @Column("org_id")
-    private Integer orgId;
+    private String orgId;
     @Column("lost")
     private Boolean lost;
     @Column("namespace")
     private String namespace;
+    @Column("originmessageid")
+    private String originmessageid;
     @Column("sending_timestamp")
     private Date sendingTimestamp;
 }

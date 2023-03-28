@@ -8,6 +8,9 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - 2181:2181
+    networks:
+      - kafka_web
+
 
   kafka:
     image: confluentinc/cp-kafka:latest
@@ -29,9 +32,12 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
+    networks:
+      - kafka_web
 
   kafkaService:
     image: kafka-service:latest
+    container_name: kafka_service
     build: .
     ports:
       - "8080:8080"
@@ -43,3 +49,9 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
+    networks:
+      - kafka_web
+
+networks:
+  kafka_web:
+    driver: bridge

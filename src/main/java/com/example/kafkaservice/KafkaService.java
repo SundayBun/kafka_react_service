@@ -26,7 +26,7 @@ public class KafkaService {
 
     @Autowired
     public KafkaService(KafkaProducer producer, KafkaConsumer consumer, MyRepository repository,
-                        @Value(value = "${topicNameProducer}")String producerTopic) {
+                        @Value(value = "${topicNameProducer}") String producerTopic) {
         this.producer = producer;
         this.consumer = consumer;
         this.repository = repository;
@@ -59,7 +59,7 @@ public class KafkaService {
                     }
                     return Mono.just(tuple);
                 })
-                .flatMap(tuple -> producer.producerPublisher(producerTopic, JsonUtil.getString(tuple.getT1())))
+                .flatMap(tuple -> producer.producerPublisher(JsonUtil.getString(tuple.getT1()), producerTopic))
                 .subscribe();
     }
 }
